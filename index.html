@@ -3,10 +3,9 @@
 
 <head>
 <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="./a.js"></script>
-  <meta charset="utf-8">
-  <title>JS Bin</title>
-  <style>
+<meta charset="utf-8">
+<title>一个简单的轮播</title>
+<style>
     .images{
       display: flex;
       align-items: flex-start;
@@ -40,6 +39,47 @@
     <span>第3张</span>
     <span>第4张</span>
   </span>
+  <script>
+  var allButtons = $('#buttons > span')
+
+for (let i = 0; i < allButtons.length; i++) {
+  $(allButtons[i]).on('click', function(x) {
+    var index = $(x.currentTarget).index()
+    var p = index * -300
+    $('#images').css({
+      transform: 'translate(' + p + 'px)'
+    })
+    n = index
+    activeButton(allButtons.eq(n))
+  })
+}
+
+var n = 0;
+var size = allButtons.length
+allButtons.eq(n % size).trigger('click')
+
+var timerId = setTimer()
+function setTimer() {
+  return setInterval(() => {
+    n += 1
+    allButtons.eq(n % size).trigger('click')
+  }, 3000)
+}
+
+function activeButton($button) {
+  $button
+    .addClass('red')
+    .siblings('.red').removeClass('red')
+}
+
+$('.window').on('mouseenter', function() {
+  window.clearInterval(timerId)
+})
+
+$('.window').on('mouseleave', function() {
+  timerId = setTimer()
+})
+  </script>
 </body>
 
 </html>
