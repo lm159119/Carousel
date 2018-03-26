@@ -3,83 +3,48 @@
 
 <head>
 <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
-<meta charset="utf-8">
-<title>一个简单的轮播</title>
-<style>
-    .images{
-      display: flex;
-      align-items: flex-start;
-      transition: all 0.5s;
-    }
-    .images > img{
-      vertical-align: top;
-    }
-    .window{
-      width: 300px;
-      overflow: hidden;
-    }
-    .red{
-  color: red;
-     }
-  </style>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <style>
+ *{ margin: 0px; padding: 0px;}
+ li{ 
+   list-style: none;
+ }
+ .content{ 
+   width: 312px; 
+   height:240px; 
+   overflow: hidden; 
+   border: #4e83c2 solid 1px;
+   margin:50px auto; 
+ }
+ .content ul{ 
+   width: 312px; 
+   height:500px;
+ }
+ .content ul li{
+    float: left;
+   width: 300px;
+   height: 228px;
+   border:#ccc solid 1px; 
+   display: block; 
+   margin: 5px;
+ }
+  
+</style>
 </head>
 
 <body>
-  <div class="window">
-    <div class="images" id=images>
-      <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1522040758773&di=46f5db7aa1312fbf26fd1f8460ce228f&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dshijue1%252C0%252C0%252C294%252C40%2Fsign%3D257a59ebeafe9925df0161135cc134aa%2Fbd315c6034a85edf92e2bf0d43540923dd5475b5.jpg" width=300 alt="图片1" height=200>
-      <img src="https://canna-pet.com/wp-content/uploads/2017/06/20-longest-living-dog-breeds_canna-pet-e1498599846169.jpg" width=300 alt="" height=200>
-      <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1522040810452&di=44a98b13e7022ac9036e838dddaf3d1f&imgtype=0&src=http%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201512%2F30%2F20151230162628_mMNKy.jpeg" width=300 alt="" height=200>
-      <img src="https://canna-pet.com/wp-content/uploads/2017/06/20-longest-living-dog-breeds_canna-pet-e1498599846169.jpg" width=300 alt="" height=200>
-    </div>
-  </div>
-  <span id=buttons>
-    <span>第1张</span>
-    <span>第2张</span>
-    <span>第3张</span>
-    <span>第4张</span>
-  </span>
-  <script>
-  var allButtons = $('#buttons > span')
-
-for (let i = 0; i < allButtons.length; i++) {
-  $(allButtons[i]).on('click', function(x) {
-    var index = $(x.currentTarget).index()
-    var p = index * -300
-    $('#images').css({
-      transform: 'translate(' + p + 'px)'
-    })
-    n = index
-    activeButton(allButtons.eq(n))
-  })
-}
-
-var n = 0;
-var size = allButtons.length
-allButtons.eq(n % size).trigger('click')
-
-var timerId = setTimer()
-function setTimer() {
-  return setInterval(() => {
-    n += 1
-    allButtons.eq(n % size).trigger('click')
-  }, 3000)
-}
-
-function activeButton($button) {
-  $button
-    .addClass('red')
-    .siblings('.red').removeClass('red')
-}
-
-$('.window').on('mouseenter', function() {
-  window.clearInterval(timerId)
-})
-
-$('.window').on('mouseleave', function() {
-  timerId = setTimer()
-})
-  </script>
+  <div class="content">
+  <ul>
+   <li> 1<img src="./1.jpg" width=300 alt="图片1" height=200></li>
+   <li>2<img src="./2.jpg" width=300 alt="" height=200></li>
+   <li>3<img src="./3.jpg" width=300 alt="" height=200></li>
+   <li>4<img src="./4.jpg" width=300 alt="" height=200></li>
+   <li>5<img src="./5.jpg" width=300 alt="图片1" height=200></li>
+   <li>6<img src="./6.jpg" width=300 alt="" height=200></li>
+   <li>7<img src="./7.jpg" width=300 alt="" height=200></li>
+  </ul>
+</div>
 </body>
 
 </html>
