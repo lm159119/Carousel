@@ -5,46 +5,27 @@
 <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
   <meta charset="utf-8">
   <title>JS Bin</title>
-  <style>
- *{ margin: 0px; padding: 0px;}
- li{ 
-   list-style: none;
- }
- .content{ 
-   width: 312px; 
-   height:240px; 
-   overflow: hidden; 
-   border: #4e83c2 solid 1px;
-   margin:50px auto; 
- }
- .content ul{ 
-   width: 312px; 
-   height:500px;
- }
- .content ul li{
-    float: left;
-   width: 300px;
-   height: 228px;
-   border:#ccc solid 1px; 
-   display: block; 
-   margin: 5px;
- }
-  
-</style>
+  <link rel="stylesheet" href="./style.css">
 </head>
-
 <body>
-  <div class="content">
-  <ul>
-   <li> 1<img src="./1.jpg" width=300 alt="图片1" height=200></li>
-   <li>2<img src="./2.jpg" width=300 alt="" height=200></li>
-   <li>3<img src="./3.jpg" width=300 alt="" height=200></li>
-   <li>4<img src="./4.jpg" width=300 alt="" height=200></li>
-   <li>5<img src="./5.jpg" width=300 alt="图片1" height=200></li>
-   <li>6<img src="./6.jpg" width=300 alt="" height=200></li>
-   <li>7<img src="./7.jpg" width=300 alt="" height=200></li>
-  </ul>
+  <div id="container">
+    <div id="list" style="left: -600px;">
+   <img src="./1.jpg" alt="图片1">
+   <img src="./2.jpg" alt="图片2">
+   <img src="./3.jpg" alt="图片3">
+   <img src="./4.jpg" alt="图片4">
+   <img src="./5.jpg" alt="图片5">
+   <img src="./6.jpg" alt="图片6">
+</div>
+<div id="buttons">
+  <span index="1" class="on"></span>
+  <span index="2"></span>
+  <span index="3"></span>
+  <span index="4"></span>
+  <span index="5"></span>
+</div>
+<a href="javascript:;" id="prev" class="arrow">&lt;</a>
+<a href="javascript:;" id="next" class="arrow">&gt;</a>
 </div>
 </body>
-
 </html>
