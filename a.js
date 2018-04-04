@@ -21,7 +21,7 @@ window.onload = function() {
     function play() {
         timer = setInterval(function() {
             next.onclick();
-        }, 2000)
+        }, 1000)
     }
 
     function stop() {
